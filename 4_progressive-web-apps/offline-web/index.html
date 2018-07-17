@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Offline Web App</title>
+    <link rel="stylesheet" href="./base.css">
+</head>
+<body>
+    <p>hello service worker</p>
+    <img src="./marvel.jpeg" alt="shield" width="200" height="200" />
+
+    <script>
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(function(swReg) {
+                    console.log(swReg);
+                })
+                .catch(function(err) {
+                    // console.log(err);
+                    // return new Error('failed', err);
+                    console.error(err);
+                });
+        }
+
+        // window 객체
+        // console.log(this);
+    </script>
+    <script src="./app.js" ></script>
+</body>
+</html>
