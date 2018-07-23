@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Router Samaple</title>
+</head>
+<body>
+    <div id="app">
+
+        <!-- Router에 의해 로드된 페이지가 출력될 엘리먼트 -->
+        <router-view></router-view>
+    </div>
+    
+    <script src="./js/vendor/vue.js"></script>
+    <script src="./js/vendor/vue-router.js"></script>
+    <script>
+
+        // Vue 컴포넌트 선언
+        var MainComponent = {
+            template: '<div>Main</div>',
+            name: 'Main'
+        }
+        
+        var LoginComponent = {
+            template: '<div>Login</div>',
+            name: 'Login'
+        }
+
+        // Vue Router 객체 인스턴스 생성
+        var router = new VueRouter({
+            // mode: 'history',
+            routes: [
+                {
+                    path: '/main',
+                    component: MainComponent
+                }, 
+                {
+                    path: '/login',
+                    component: LoginComponent
+                }
+            ]
+        })
+
+        // Vue 객체 인스턴스 생성
+        new Vue({
+            el: '#app',
+            router      // router: router 와 같음. 키가 같을 경우엔 하나로 생략가능
+        })
+        // 위의 코드와 같음 $mount. (mouter라는 뜻이 갖다 붙이다라는 의미를 가지고 있으므로 #app에 router를 mount 시킨다와 같은 의미임)
+        // new Vue({
+        //     router
+        // }).$mount('#app')
+    </script>
+</body>
+</html>

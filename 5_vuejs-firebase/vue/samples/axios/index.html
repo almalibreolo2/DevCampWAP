@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Axios</title>
+    <style>
+        .blue-text {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        {{ str }} <button @click="fatchedData">Click me</button>
+        <div v-if="isTrue">
+            Vue.js
+        </div>
+        <ul>
+            <li v-for="item in arr">{{ item }}</li>
+        </ul>
+        <header>
+            <!-- <h1 class="blue-text">style binding</h1> -->
+            <div :id="tagId">id binding</div>
+            <h1 :class="styleBinding">style binding</h1>
+        </header>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var url = 'https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json'
+
+        // Vue 객체 인스턴스 생성
+        new Vue({
+            el: '#app',
+            data: {
+                str: 'axios call!!!!!',
+                arr: ['item1', 'item2', 'item3'],
+                isTrue: true,
+                styleBinding: 'blue-text',
+                tagId: 100
+            },
+            methods: {
+                fatchedData () {
+                    axios.get(url)
+                        .then((response) => {
+                            console.log(response.data)
+                        })
+                        .catch((err) => console.log(err))
+                }
+            }
+        })
+    </script>
+</body>
+</html>

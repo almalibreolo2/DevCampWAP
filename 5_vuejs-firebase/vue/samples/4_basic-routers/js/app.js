@@ -1,8 +1,14 @@
 // 0. If using a module system, call Vue.use(VueRouter)
 
 // 1. Define route components.
-var Foo = { template: '<div>foo</div>' }
-var Bar = { template: '<div>bar</div>' }
+var Foo = { 
+  template: '<div>foo</div>',
+  name: 'Foo' 
+}
+var Bar = { 
+  template: '<div>bar</div>',
+  name: 'Bar'  
+}
 
 // 2. Define some routes
 var routes = [

@@ -3,9 +3,17 @@ Vue.component('global-component', {
   template: '<p><strong>This is a global component</strong></p>'
 });
 
+Vue.component('another-global-component', {
+  template: '<p>This is another global component</p>'
+});
+
 // Local Component
 var cmp = {
   template: '<p><strong>This is a local component</strong></p>'
+}
+
+var anotherComp =  {
+  template: '<p>This is another local component</p>'
 }
 
 var app = new Vue({
@@ -16,7 +24,8 @@ var app = new Vue({
 
   // Local Component
   components: {
-    'local-component' : cmp
+    'local-component' : cmp,
+    'another-local-component' : anotherComp
   },
 
   // 실습 #2 - `another-local-component` 컴포넌트 지역 등록
