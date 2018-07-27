@@ -2,16 +2,12 @@
   <div id="app">
     <!-- Header -->
     <todo-header></todo-header>
-
-    <!-- Content -->
-    <todo-app></todo-app>
   </div>
 </template>
 
 <script>
 // import 로드할 파일 from '로드할 파일 위치'
-import TodoHeader from './TodoHeader.vue'
-import TodoApp from './TodoApp.vue'
+import TodoHeader from './components/TodoHeader.vue'
 
 export default {
   data () {
@@ -20,8 +16,7 @@ export default {
     }
   },
   components: {
-    'todo-header': TodoHeader,
-    'todo-app': TodoApp
+    'todo-header': TodoHeader
   }
 }
 </script>
