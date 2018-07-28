@@ -1,15 +1,26 @@
-// 변수 선언
-var a = 10;
+// // export (a, b) { return a+b; } 로 선언도 가능. 다른 곳에서 import 할 때 임의의 함수명을 지정해줄 수 있음.
+// export function sum (a, b) {
+//     return a+b;
+// }
 
-// 함수 선언
-function b() {
-	return '20';
-};
+// export function substract (a, b) {
+//     return a-b;
+// }
 
-// 두 개의 값을 더해서 반환해주는 함수
-export function sum(a, b) {
-	return a + b;
-};
+// export const pi = 3.14;
 
-// 선언한 변수와 함수 모두 다른 모듈에서 사용할 수 있게 export
-export { a, b }
+function sum (a, b) {
+    return a+b;
+}
+
+function substract (a, b) {
+    return a-b;
+}
+
+const pi = 3.14;
+
+export default {
+    sum,
+    substract,
+    pi
+}
