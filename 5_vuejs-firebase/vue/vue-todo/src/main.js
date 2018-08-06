@@ -1,6 +1,8 @@
 import Vue from 'vue'
+import { store } from './store/store.js'
 import App from './App.vue'
 // var App = require('./App.vue')   // 위와 같은 코드임.
+
 
 // 다음시간에..
 // var bus = new Vue({
@@ -11,7 +13,8 @@ import App from './App.vue'
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  render: h => h(App),
+  store
 })
 // // 위의 코드와 같음
 // new Vue({

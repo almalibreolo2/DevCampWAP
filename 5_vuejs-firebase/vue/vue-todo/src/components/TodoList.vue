@@ -1,10 +1,10 @@
 <template>
     <div>
         <ul>
-            <li v-for="(todoItem, index) in propsdata" :key="index" class="shadow">
+            <li v-for="(todoItem, index) in this.$store.state.todoItems" :key="index" class="shadow">
                 {{ todoItem }}
                 <span class="removeBtn">
-                    <i class="fas fa-trash-alt" @click="removeTodo(todoItem, index)"></i>
+                    <i class="fas fa-trash-alt" @click="removeTodo({todoItem, index})"></i>
                 </span>
             </li>
         </ul>
@@ -12,10 +12,12 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
     // data () {
     //     return {
-    //         todoItems: []
+    //         todoItems: this.$store.state.todoItems
     //     }
     // },
     // created () {
@@ -26,15 +28,25 @@ export default {
     //         }
     //     }
     // },
-    props: {
-        propsdata: Array
-    },
+    // props: {
+    //     propsdata: Array
+    // },
     methods: {
-        removeTodo (todoItem, index) {
-            this.$emit('removeTodo', todoItem, index)
-            // this.todoItems.splice(index, 1)
-            // localStorage.removeItem(todoItem)
-        }
+      ...mapMutations({
+        'removeTodo': 'removeTodoItem'
+      })
+        // // removeTodo (todoItem, index) {
+        // removeTodo (payload) {
+        //   // let payload = {
+        //   //   todoItem,
+        //   //   index
+        //   // }
+        //   this.$store.commit('removeTodoItem', payload)
+
+        //   // this.$emit('removeTodo', todoItem, index)
+        //   // this.todoItems.splice(index, 1)
+        //   // localStorage.removeItem(todoItem)
+        // }
     }
 }
 </script>

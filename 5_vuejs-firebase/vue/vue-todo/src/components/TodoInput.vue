@@ -19,7 +19,9 @@ export default {
             let value = this.inputText
             if(value != null && value !== '') {
                 // localStorage.setItem(value, value)
-                this.$emit('addTodo', value.trim())
+                // this.$emit('addTodo', value.trim())
+                
+                this.$store.commit('addTodoItem', value)
                 this.inputText = ''
             }
         }
